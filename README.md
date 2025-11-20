@@ -80,7 +80,8 @@ Authentication: https://mag-backend-0gn4.onrender.com/api/v1/auth/login
 
 Opportunities: https://mag-backend-0gn4.onrender.com/api/v1/opportunities
 
-Note: If the external API is unavailable, the app automatically shows realistic demo data.
+Live Site:
+https://mag-opportunity-intelligence-dashboard.onrender.com/
 
 Screenshots
 Login page
