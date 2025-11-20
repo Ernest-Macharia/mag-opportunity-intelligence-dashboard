@@ -82,3 +82,13 @@ Opportunities: https://mag-backend-0gn4.onrender.com/api/v1/opportunities
 
 Note: If the external API is unavailable, the app automatically shows realistic demo data.
 
+Screenshots
+Login page
+<img width="1513" height="795" alt="Screenshot from 2025-11-20 13-44-17" src="https://github.com/user-attachments/assets/34c75de2-d34b-4ed1-b2c5-15f9d8c57d09" />
+
+Dashboard Pages
+
+<img width="1513" height="795" alt="Screenshot from 2025-11-20 13-43-54" src="https://github.com/user-attachments/assets/74305b0b-27be-42a1-ab3a-285e1c34ebfa" />
+<img width="1513" height="795" alt="Screenshot from 2025-11-20 13-44-08" src="https://github.com/user-attachments/assets/abc489e9-59d5-470e-a4a8-f22be011c5ef" />
+
+
