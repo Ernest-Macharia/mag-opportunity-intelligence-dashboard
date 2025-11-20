@@ -1,6 +1,8 @@
 import { Opportunity } from '@/types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://mag-backend-0gn4.onrender.com/api/v1';
+const API_BASE = 'https://mag-backend-0gn4.onrender.com/api/v1';
+// CORS proxy to bypass CORS restrictions
+const CORS_PROXY = 'https://corsproxy.io/?';
 
 export const apiClient = {
   token: '',
@@ -8,7 +10,7 @@ export const apiClient = {
 
   async login(email: string, password: string): Promise<string> {
     try {
-      const response = await fetch(`${API_BASE}/auth/login`, {
+      const response = await fetch(`${CORS_PROXY}${encodeURIComponent(`${API_BASE}/auth/login`)}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +46,7 @@ export const apiClient = {
     try {
       console.log('Fetching opportunities with token...');
       
-      const response = await fetch(`${API_BASE}/opportunities`, {
+      const response = await fetch(`${CORS_PROXY}${encodeURIComponent(`${API_BASE}/opportunities`)}`, {
         headers: {
           'Authorization': `Bearer ${this.token}`,
           'Content-Type': 'application/json',
