@@ -17,7 +17,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
 
     try {
       await onLogin(email, password);
-    } catch (err) {
+    } catch {
       setError('Login failed. Please check your credentials.');
     } finally {
       setLoading(false);

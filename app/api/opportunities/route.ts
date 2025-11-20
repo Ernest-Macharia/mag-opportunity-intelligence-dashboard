@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
       headers: { 'X-Data-Source': 'demo-fallback' }
     });
     
-  } catch (error: any) {
+  } catch {
     const demoData = generateDemoData();
     return NextResponse.json(demoData, {
       headers: { 'X-Data-Source': 'demo-error' }

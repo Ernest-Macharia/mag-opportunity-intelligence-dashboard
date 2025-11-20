@@ -108,9 +108,10 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
         console.log('Processed Source Data:', processedData.bySource);
         
         setData(processedData);
-      } catch (apiError: any) {
+      } catch (apiError: unknown) {
         // If API fails, use demo data
-        console.log('API failed, using demo data:', apiError.message);
+        const errorMessage = apiError instanceof Error ? apiError.message : 'Unknown error';
+        console.log('API failed, using demo data:', errorMessage);
         const demoData = generateDemoData();
         const processedData: DashboardData = {
           opportunities: demoData,
@@ -125,9 +126,10 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
         setData(processedData);
       }
       
-    } catch (error: any) {
-      console.error('Failed to fetch data:', error);
-      setError(error.message || 'Failed to load data');
+    } catch (fetchError: unknown) {
+      const errorMessage = fetchError instanceof Error ? fetchError.message : 'Failed to load data';
+      console.error('Failed to fetch data:', fetchError);
+      setError(errorMessage);
     } finally {
       setLoading(false);
       setRefreshing(false);

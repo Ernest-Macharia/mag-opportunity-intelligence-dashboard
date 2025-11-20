@@ -13,7 +13,7 @@ const getStageColor = (stage: string) => {
 
 export default function StageChart({ data }: { data: { [key: string]: number } }) {
   const stages = Object.entries(data)
-    .filter(([name, count]) => count > 0)
+    .filter(([_name, count]) => count > 0)
     .map(([name, count]) => ({
       name,
       count,

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://mag-backend-0gn4.onrender.com/api/v1';
 
-
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
@@ -32,7 +31,7 @@ export async function POST(request: NextRequest) {
         { status: response.status }
       );
     }
-  } catch (error: any) {
+  } catch {
     return NextResponse.json(
       { error: 'Authentication service unavailable' },
       { status: 503 }
