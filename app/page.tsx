@@ -11,7 +11,6 @@ export default function Home() {
   useEffect(() => {
     const storedToken = localStorage.getItem('dashboard_token');
     if (storedToken) {
-      console.log('Found stored token');
       setToken(storedToken);
       apiClient.token = storedToken;
     }
@@ -20,9 +19,7 @@ export default function Home() {
 
   const handleLogin = async (email: string, password: string) => {
     try {
-      console.log('Attempting login...');
       const newToken = await apiClient.login(email, password);
-      console.log('Login successful, setting token');
       setToken(newToken);
       localStorage.setItem('dashboard_token', newToken);
       apiClient.token = newToken;
@@ -33,7 +30,6 @@ export default function Home() {
   };
 
   const handleLogout = () => {
-    console.log('Logging out...');
     setToken(null);
     localStorage.removeItem('dashboard_token');
     apiClient.logout();

@@ -77,7 +77,6 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
   useEffect(() => {
     if (token) {
       apiClient.token = token;
-      console.log('Token set in Dashboard');
     }
   }, [token]);
 
@@ -86,11 +85,8 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
       setError(null);
       setLoading(true);
       
-      console.log('Starting data fetch...');
-      
       try {
         const opportunities: Opportunity[] = await apiClient.getOpportunities();
-        console.log('API data received successfully:', opportunities.length, 'opportunities');
         
         const processedData: DashboardData = {
           opportunities,
@@ -102,16 +98,10 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
           heatmap: processHeatmapData(opportunities),
         };
         
-        // Log processed data for debugging
-        console.log('Processed Category Data:', processedData.byCategory);
-        console.log('Processed Stage Data:', processedData.byStage);
-        console.log('Processed Source Data:', processedData.bySource);
-        
         setData(processedData);
       } catch (apiError: unknown) {
         // If API fails, use demo data
         const errorMessage = apiError instanceof Error ? apiError.message : 'Unknown error';
-        console.log('API failed, using demo data:', errorMessage);
         const demoData = generateDemoData();
         const processedData: DashboardData = {
           opportunities: demoData,

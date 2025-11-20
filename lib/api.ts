@@ -30,7 +30,6 @@ export const apiClient = {
       }
       
       this.token = data.accessToken;
-      console.log('Login successful, access token received');
       return data.accessToken;
     } catch (error) {
       console.error('Login error:', error);
@@ -44,16 +43,12 @@ export const apiClient = {
     }
 
     try {
-      console.log('Fetching opportunities with token...');
-      
       const response = await fetch(`${CORS_PROXY}${encodeURIComponent(`${API_BASE}/opportunities`)}`, {
         headers: {
           'Authorization': `Bearer ${this.token}`,
           'Content-Type': 'application/json',
         },
       });
-
-      console.log('Opportunities response status:', response.status);
 
       if (response.status === 401) {
         throw new Error('Authentication failed - token may be invalid or expired');
@@ -64,7 +59,6 @@ export const apiClient = {
       }
 
       const data = await response.json();
-      console.log('Opportunities data received:', data.length, 'items');
       
       this.dataSource = 'live-api';
       return data as Opportunity[];
