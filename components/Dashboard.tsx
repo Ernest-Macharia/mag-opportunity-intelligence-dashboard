@@ -102,6 +102,7 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
       } catch (apiError: unknown) {
         // If API fails, use demo data
         const errorMessage = apiError instanceof Error ? apiError.message : 'Unknown error';
+        setError(errorMessage);
         const demoData = generateDemoData();
         const processedData: DashboardData = {
           opportunities: demoData,
