@@ -15,7 +15,7 @@ const getSourceColor = (source: string) => {
 
 export default function SourceChart({ data }: { data: { [key: string]: number } }) {
   const sources = Object.entries(data)
-    .filter(([_name, count]) => count > 0)
+    .filter(([, count]) => count > 0)
     .map(([name, count]) => ({
       name,
       count,

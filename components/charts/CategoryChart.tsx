@@ -13,7 +13,7 @@ const getCategoryColor = (category: string) => {
 
 export default function CategoryChart({ data }: { data: { [key: string]: number } }) {
   const categories = Object.entries(data)
-    .filter(([_name, count]) => count > 0)
+    .filter(([, count]) => count > 0)
     .map(([name, count]) => ({
       name,
       count,
