@@ -104,8 +104,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
 
         <div className="mt-6 text-center">
           <p className="text-orange-300 text-sm">
-            Don't have an account?{' '}
-              Sign up
+            Use the credentials provided in your assessment
           </p>
         </div>
       </div>
