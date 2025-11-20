@@ -6,16 +6,33 @@ export interface Opportunity {
   status: string;
   customer: {
     name: string;
-    email?: string;
-    phone?: string;
-    companyName?: string;
+    email: string;
+    phone: string;
+    companyName: string;
     _id: string;
   };
-  vehicles: any[];
-  jobCards: any[];
-  waivers: any[];
-  quotes: any[];
-  assignedTo: any;
+  vehicles: Array<{
+    _id: string;
+    vin: string;
+    registrationNumber: string;
+    make: string;
+    model: string;
+    year: number;
+    color: string;
+  }>;
+  jobCards: Array<{
+    _id: string;
+    jobTitle: string;
+    status: string;
+  }>;
+  waivers: unknown[];
+  quotes: Array<{
+    _id: string;
+    quoteNumber: string;
+    totalAmount: number;
+    status: string;
+  }>;
+  assignedTo: string | null;
   createdAt: string;
   updatedAt: string;
   __v: number;

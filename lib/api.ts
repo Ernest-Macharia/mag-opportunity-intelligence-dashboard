@@ -1,44 +1,6 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://mag-backend-0gn4.onrender.com/api/v1';
+import { Opportunity } from '@/types';
 
-export interface Opportunity {
-  _id: string;
-  type: string;
-  subject: string;
-  source: string;
-  status: string;
-  customer: {
-    name: string;
-    email: string;
-    phone: string;
-    companyName: string;
-    _id: string;
-  };
-  vehicles: Array<{
-    _id: string;
-    vin: string;
-    registrationNumber: string;
-    make: string;
-    model: string;
-    year: number;
-    color: string;
-  }>;
-  jobCards: Array<{
-    _id: string;
-    jobTitle: string;
-    status: string;
-  }>;
-  waivers: any[];
-  quotes: Array<{
-    _id: string;
-    quoteNumber: string;
-    totalAmount: number;
-    status: string;
-  }>;
-  assignedTo: string | null;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-}
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://mag-backend-0gn4.onrender.com/api/v1';
 
 export const apiClient = {
   token: '',
