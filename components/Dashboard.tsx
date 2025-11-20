@@ -190,7 +190,7 @@ export default function Dashboard({ token, onLogout }: DashboardProps) {
   const avgScore = data && data.opportunities.length > 0 
     ? Math.round(
         data.opportunities.reduce((sum, opp) => {
-          let score = 25;
+          let score = 25; 
           if (opp.status === 'qualified') score += 40;
           if (opp.status === 'closed') score += 30;
           if (opp.vehicles.length > 0) score += 15;

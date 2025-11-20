@@ -1,5 +1,17 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://mag-backend-0gn4.onrender.com/api/v1';
 
+export interface Opportunity {
+  id: string;
+  name: string;
+  stage: string;
+  source: string;
+  category: string;
+  value?: number;
+  createdAt: string;
+  updatedAt: string;
+  [key: string]: unknown; // Fallback for dynamic fields
+}
+
 export const apiClient = {
   token: '',
   dataSource: 'live',
@@ -34,7 +46,7 @@ export const apiClient = {
     }
   },
 
-  async getOpportunities(): Promise<any[]> {
+  async getOpportunities(): Promise<Opportunity[]> {
     if (!this.token) {
       throw new Error('No authentication token available');
     }
@@ -63,7 +75,7 @@ export const apiClient = {
       console.log('Opportunities data received:', data.length, 'items');
       
       this.dataSource = 'live-api';
-      return data;
+      return data as Opportunity[];
     } catch (error) {
       console.error('getOpportunities error:', error);
       this.dataSource = 'demo-error';
