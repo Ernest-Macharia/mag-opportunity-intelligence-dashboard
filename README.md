@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Quick Start
+Prerequisites
+Node.js 18+
 
-## Getting Started
+npm or yarn
 
-First, run the development server:
+Installation & Setup
+Option 1: Clone and Setup (Recommended)
 
-```bash
+bash
+# Clone the repository
+git clone https://github.com/Ernest-Machariamag-opportunity-intelligence-dashboard
+cd mag-opportunity-dashboarde-intelligence
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Option 2: Create from Scratch
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+bash
+# Create new Next.js project
+npx create-next-app@latest opportunity-dashboard --typescript --tailwind --eslint --app
+cd opportunity-dashboard
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Install dependencies
+npm install lucide-react recharts sonner
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Replace the generated files with the provided code
 
-## Learn More
+# Run development server
+npm run dev
+Open http://localhost:3000 in your browser
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Features
+Modern Authentication - Secure JWT token-based login
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Real-time Analytics - Multiple chart types and visualizations
 
-## Deploy on Vercel
+Responsive Design - Works perfectly on all devices
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Demo Mode - Automatic fallback to sample data when API is unavailable
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Black & Orange Theme - Consistent dark theme with orange accents
+
+Tech Stack
+Framework: Next.js 14 with App Router
+
+Language: TypeScript
+
+Styling: Tailwind CSS
+
+Charts: Recharts
+
+Icons: Lucide React
+
+Dashboard Components
+Total Opportunities - Overall count
+
+Average Score - Mean opportunity score
+
+Conversion Rate - Success percentage
+
+Heatmap - Opportunities by hour & day
+
+Category Breakdown - Service categories
+
+Stage Progression - Sales pipeline
+
+Source Analysis - Opportunity origins
+
+Score Distribution - Performance range
+
+API Integration
+The app connects to:
+
+Authentication: https://mag-backend-0gn4.onrender.com/api/v1/auth/login
+
+Opportunities: https://mag-backend-0gn4.onrender.com/api/v1/opportunities
+
+Note: If the external API is unavailable, the app automatically shows realistic demo data.
+
